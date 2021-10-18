@@ -19,11 +19,11 @@
         <div>
           <label for="description">Description: </label>
           <textarea
-            v-model.lazy="deckDescription"
+            v-model="deckDescription"
             id="description"
             name="description"
           ></textarea>
-          ({{200 - deckDescription.length}} left)
+          ({{charsLeft}} left)
         </div>
 
         <div class="options">
@@ -113,6 +113,11 @@
             leech: 'tag',
             categoryId: '',
           }
+        },
+        computed: {
+          charsLeft() {
+            return 200 - this.deckDescription.length
+          },
         },
         methods: {
           submit() {

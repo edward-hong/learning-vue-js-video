@@ -25,7 +25,7 @@
         <button @click="move(1)" type="button">&#8594;</button>
       </div>
 
-      <a :href="readMoreUrl">read more</a>
+      <read-more></read-more>
     </div>
 
     <script src="data.js"></script>
@@ -78,7 +78,14 @@
         },
       }
 
-      const app = Vue.createApp(FlashCardApp).mount('#app')
+      const app = Vue.createApp(FlashCardApp)
+
+      app.component('read-more', {
+        name: 'ReadMore',
+        template: '<a href="https://v3.vuejs.org/guide">read more</a>',
+      })
+
+      app.mount('#app')
     </script>
   </body>
 </html>
